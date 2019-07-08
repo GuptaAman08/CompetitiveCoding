@@ -28,15 +28,6 @@ while test_cases != 0:
     print(count_Even, count_Odd)
     for i in range(q-1):
         t = int(input())
-
-        for x in list(s):
-            temp = x ^ t
-            if s[temp] == 0:
-                s[temp] = 1
-                if getEven(temp):
-                    count_Even += 1
-                else:
-                    count_Odd += 1
         
         if s[t] == 0:
             s[t] = 1
@@ -44,6 +35,15 @@ while test_cases != 0:
                 count_Even += 1
             else:
                 count_Odd += 1
+            for x in list(s):
+                if x != t:
+                    temp = x ^ t
+                    if s[temp] == 0:
+                        s[temp] = 1
+                        if getEven(temp):
+                            count_Even += 1
+                        else:
+                            count_Odd += 1
         print(count_Even, count_Odd)
     
     test_cases -= 1
