@@ -9,6 +9,7 @@ def getMaxSubArray(a,n):
     ans = 0
     t = list(filter(lambda x : (x<0), a))
     if len(t) == n:
+        # all negative case
         ans = max(a)
     else:
         sum_i = 0
