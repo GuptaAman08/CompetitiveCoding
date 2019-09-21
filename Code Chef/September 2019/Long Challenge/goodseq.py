@@ -10,6 +10,7 @@ c = Counter(a)
 dis_ele = c.keys()
 dis_ele_count = len(dis_ele)
 
+mod = 1000000007
 
 ans = n + 1
 arr = np.zeros((dis_ele_count, k+1))
@@ -20,7 +21,7 @@ arr[:, 1] = list(accumulate(c.values()))
 
 for i in range(2, k+1):
     for j in range(i-1, dis_ele_count):
-        arr[j][i] = arr[j-1][i-1] * c[arr[j][0]] + arr[j-1][i]
-    ans += arr[j][i]
+        arr[j][i] = ((arr[j-1][i-1])%mod * (c[arr[j][0]])%mod)%mod + arr[j-1][i]
+    ans = ((ans)%mod + (arr[j][i])%mod)%mod
 
-print(int(ans) % 1000000007)
+print(int(ans) % mod)
