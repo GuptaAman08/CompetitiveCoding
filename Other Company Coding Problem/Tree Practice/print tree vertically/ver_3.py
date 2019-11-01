@@ -1,4 +1,4 @@
-# An O(nlogn) approach 
+# An O(n) approach 
 # Link : https://www.geeksforgeeks.org/print-a-binary-tree-in-vertical-order-set-3-using-level-order-traversal/
 # This is correct implementation
 
@@ -39,8 +39,19 @@ def verticalTree(root):
             ntd[t.right] = ntd[t] + 1
             dtn[ntd[t.right]].append(t.right.data)
 
-    for key in sorted(dtn):
-        print(*dtn[key])
+
+    min_val, max_val = float('inf'), float('-inf') 
+    for key in dtn.keys():
+        if min_val > key:
+            min_val = key
+
+        if max_val < key:
+            max_val = key
+
+    
+    for i in range(min_val, max_val+1):
+        print(*dtn[i])
+    
 
 root = Node(1)
 root.left = Node(2)
