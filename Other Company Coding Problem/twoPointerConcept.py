@@ -14,7 +14,7 @@ f = 0
 while i<j:
     if (sort_arr[i] + sort_arr[j]) < givenSum:
         i += 1
-    elif (sort_arr[i] + sort_arr[j]) < givenSum:
+    elif (sort_arr[i] + sort_arr[j]) > givenSum:
         j -= 1
     else:
         f = 1
